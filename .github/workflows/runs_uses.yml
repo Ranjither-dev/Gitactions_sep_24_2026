@@ -23,6 +23,8 @@ jobs:
         uses: actions/checkout@v5.1.0
       - name: display stage
         run: ls -la
+      - name: Show commit count
+        run: echo "Commit count:" && git log --oneline | wc -l
   third_job:
     runs-on: ubuntu-latest
     steps:
@@ -32,6 +34,8 @@ jobs:
           fetch-depth: 1
       - name: display stage
         run: ls -la
+      - name: Show commit count
+        run: echo "Commit count:" && git log --oneline | wc -l
   fourth_job:
     runs-on: ubuntu-latest
     steps:
@@ -41,6 +45,8 @@ jobs:
           fetch-depth: 0
       - name: display stage
         run: ls -la
+      - name: Show commit count
+        run: echo "Commit count:" && git log --oneline | wc -l
           
 
         
