@@ -1,0 +1,41 @@
+name: vanakkam
+
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+      
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: one
+        run: |
+          echo "hi naavandhu one solanum "
+          echo "aprem solren"
+          echo "idhu push settings"
+          echo " idhu path mode la py files upload panadhuku aprem vara command"
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chechout stage
+        uses: actions/checkout@v5.1.0
+  third_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chechout stage
+        uses: actions/checkout@v5.1.0
+        with:
+          fetch-depth: 1
+  fourth_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chechout stage
+        uses: actions/checkout@v5.1.0
+        with:
+          fetch-depth: 0
+          
+
+        
+      
