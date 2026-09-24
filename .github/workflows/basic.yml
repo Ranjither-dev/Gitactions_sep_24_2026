@@ -1,0 +1,12 @@
+name: vanakkam
+
+on: workflow_dispatch
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: one
+        run: |
+          echo "hi naavandhu one solanum "
+          echo "aprem solren"
