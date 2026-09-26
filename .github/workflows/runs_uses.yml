@@ -18,36 +18,10 @@ jobs:
           echo " idhu path mode la py files upload panadhuku aprem vara command"
   second_job:
     runs-on: ubuntu-latest
+    env:
+      github_context: ${{ toJson(github) }}
     steps:
-      - name: chechout stage
-        uses: actions/checkout@v5.1.0
-      - name: display stage
-        run: ls -la
-      - name: Show commit count
-        run: echo "Commit count:" && git log --oneline | wc -l
-  third_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: chechout stage
-        uses: actions/checkout@v5.1.0
-        with:
-          fetch-depth: 1
-      - name: display stage
-        run: ls -la
-      - name: Show commit count
-        run: echo "Commit count:" && git log --oneline | wc -l
-  fourth_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: chechout stage
-        uses: actions/checkout@v5.1.0
-        with:
-          fetch-depth: 0
-      - name: display stage
-        run: ls -la
-      - name: Show commit count
-        run: echo "Commit count:" && git log --oneline | wc -l
-          
-
+      - name: contexts fetching
+        run: |
+          echo "$github_context"
         
-      
