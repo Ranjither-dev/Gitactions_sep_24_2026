@@ -14,9 +14,10 @@ jobs:
           fi
           echo "✅ Secret is available. Length is characters."
           echo "Even if I try to print it, GitHub masks it: ${{ secrets.MY_API_KEY }}"
-
-
-
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
       - name: Confirm the variable is present
         run: |
           if [ -z "${{ vars.YOUTUBE }}" ]; then
@@ -25,3 +26,6 @@ jobs:
           fi
           echo "✅ Variable is available. Length is characters."
           echo "Even if I try to print it, since it is a variable GitHub prints it: ${{ vars.YOUTUBE }}"
+      - name: Confirm the variable is present
+        run: |
+          echo "${{ needs.job1.result }}"
