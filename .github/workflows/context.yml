@@ -12,7 +12,7 @@ jobs:
             echo "❌ Secret MY_API_KEY is not set. Add it in repo settings."
             exit 1
           fi
-          echo "✅ Secret is available. Length is ${#${{ secrets.MY_API_KEY }}} characters."
+          echo "✅ Secret is available. Length is characters."
           echo "Even if I try to print it, GitHub masks it: ${{ secrets.MY_API_KEY }}"
 
 
