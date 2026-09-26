@@ -29,5 +29,5 @@ jobs:
     steps:
       - name: nested contexts fetching
         run: |
-          echo "${{ github.head_commit }}"
+          echo "${{ github.pusher.email }}"
         
