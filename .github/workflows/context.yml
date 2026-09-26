@@ -23,11 +23,11 @@ jobs:
     steps:
       - name: contexts fetching
         run: |
-          echo "$github_context" head_commit
+          echo "$github_context"
   third_job:
     runs-on: ubuntu-latest
     steps:
       - name: nested contexts fetching
         run: |
-          echo " hi: ${{ github.head_commit }} "
+          echo " ${{ github.head_commit }} "
         
