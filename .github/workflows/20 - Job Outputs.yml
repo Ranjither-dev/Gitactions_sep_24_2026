@@ -10,7 +10,7 @@ jobs:
     outputs:
       version:   ${{ steps.meta.outputs.version }}
       timestamp: ${{ steps.meta.outputs.timestamp }}
-      changelog: ${{ steps.notes.outputs.changelog }}
+      
 
     steps:
       # STEP 1 of the chain: write to the special $GITHUB_OUTPUT file.
@@ -32,10 +32,9 @@ jobs:
         id: notes
         run: |
           {
-            echo "changelog<<CHANGELOG_EOF"
-            echo "- Added job outputs"
-            echo "- Fixed the build"
-            echo "CHANGELOG_EOF"
+            VERSION="2.4.${{ github.run_number }}"
+            echo "job2_version = $VERSION "
+            echo "job2_version2=$VERSION.${{ github.run_number }}"
           } >> "$GITHUB_OUTPUT"
 
       # Inside the SAME job you read step outputs directly — no `needs`.
@@ -44,7 +43,8 @@ jobs:
         # as a new key and rejects the file. Use a block scalar (|) like this,
         # or quote the whole string.
         run: |
-          echo "Same job sees: ${{ steps.meta.outputs.version }}"
+          echo "Same job sees: ${{ steps.notes.outputs.job2_version }}"
+          echo "Same job sees: ${{ steps.notes.outputs.job2_version2 }}"
 
   # STEP 3 of the chain: a different machine, reading the value over `needs`.
   consume:
