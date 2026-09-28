@@ -62,5 +62,5 @@ jobs:
       # A very common real-world pattern: decide something in job A, then
       # gate job B on it. (Remember: the value is a STRING.)
       - name: Gate on an output value
-        if: needs.produce.outputs.job2_version != ''
+        if: needs.produce.outputs.job2_version == ''
         run: echo "We have a version, so a deploy could proceed."
