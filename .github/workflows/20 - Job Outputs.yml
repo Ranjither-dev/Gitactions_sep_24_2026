@@ -10,6 +10,8 @@ jobs:
     outputs:
       version:   ${{ steps.meta.outputs.version }}
       timestamp: ${{ steps.meta.outputs.timestamp }}
+      job2_version: ${{ steps.notes.outputs.job2_version }}
+      job2_version2: ${{ steps.notes.outputs.job2_version2 }}
       
 
     steps:
@@ -53,8 +55,8 @@ jobs:
     steps:
       - name: Read the upstream job's outputs
         run: |
-          echo "Version   : ${{ needs.produce.outputs.version }}"
-          echo "Built at  : ${{ needs.produce.outputs.timestamp }}"
+          echo "Version   : ${{ needs.produce.outputs.job2_version }}"
+          echo "Built at  : ${{ needs.produce.outputs.job2_version2 }}"
           echo "Changelog :"
           echo "${{ needs.produce.outputs.changelog }}"
 
