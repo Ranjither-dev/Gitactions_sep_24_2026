@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}     # <- the matrix value, per job
-          cache: 'npm'
+         
 
       # `npm ci` is the CI-correct install: it installs EXACTLY what the
       # lockfile says and fails if package.json and the lockfile disagree.
