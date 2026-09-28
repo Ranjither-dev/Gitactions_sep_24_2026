@@ -10,8 +10,7 @@ jobs:
     outputs:
       version:   ${{ steps.meta.outputs.version }}
       timestamp: ${{ steps.meta.outputs.timestamp }}
-      job2_version: ${{ steps.notes.outputs.job2_version }}
-      job2_version2: ${{ steps.notes.outputs.job2_version2 }}
+     
       
 
     steps:
