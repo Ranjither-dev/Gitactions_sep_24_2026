@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: code checkout
-      - uses: actions/checkout@v5
+        uses: actions/checkout@v5
 
       - name: Set up Node ${{ matrix.node }}
         uses: actions/setup-node@v6
@@ -25,8 +25,8 @@ jobs:
       # lockfile says and fails if package.json and the lockfile disagree.
       # `npm install` may quietly update the lockfile — fine on your laptop,
       # wrong in a pipeline that is supposed to be reproducible.
-      - name: running cmd of npm ci
-      - run: npm ci
+      - name: Install dependencies
+        run: npm install
 
       - name: Prove which Node we are on
         run: |
