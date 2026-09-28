@@ -33,7 +33,7 @@ jobs:
         run: |
           {
             VERSION="2.4.${{ github.run_number }}"
-            echo "job2_version = $VERSION "
+            echo "job2_version=$VERSION "
             echo "job2_version2=$VERSION.${{ github.run_number }}"
           } >> "$GITHUB_OUTPUT"
 
